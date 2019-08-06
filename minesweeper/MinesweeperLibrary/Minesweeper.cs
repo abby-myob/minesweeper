@@ -2,6 +2,7 @@ namespace MinesweeperLibrary
 {
     public class Minesweeper
     {
-        // handle multiple 
+        // handle multiple fields depending on the input. 
+        
     }
 }

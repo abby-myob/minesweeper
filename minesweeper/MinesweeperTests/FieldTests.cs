@@ -6,10 +6,20 @@ namespace MinesweeperTests
     public class FieldTests
     {
         [Fact]
-        public void Setup()
+        public void Field_set_up()
         {
-            Field field = new Field();
-            //Square square = new Square();
+            char[,] input = new char[4,4];
+            Field field = new Field(4,4,input);
+            
+            
+        }
+
+
+        [Fact]
+        public void Check_list_of_neighbours()
+        {
+            
+            
             
         }
     }

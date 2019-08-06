@@ -12,7 +12,7 @@ namespace MinesweeperTests
         [InlineData(8, '8', '.')]
         [InlineData(0, '0', '.')]
         [InlineData(0, '*', '*')]
-        public void When_given_neighbours_check_new_state(int numMines, char expected, char squareState)
+        public void When_given_neighbours_update_state(int numMines, char expected, char squareState)
         {
             Square square = new Square(squareState);
             List<Square> neighbours = SetUpNeighbours(numMines);
@@ -40,16 +40,3 @@ namespace MinesweeperTests
         }
     }
 }
-
-//            "44" 
-//            "*..."
-//            "...."
-//            ".*.."
-//            "...."
-//                
-//            "35" 
-//            "**..."
-//            "....."
-//            ".*..."
-//                
-//            "00"
