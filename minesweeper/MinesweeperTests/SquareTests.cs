@@ -22,7 +22,27 @@ namespace MinesweeperTests
             Assert.Equal(expected, square.AdjacentMines);
         }
 
-        private List<Square> SetUpNeighbours(int numMines)
+        
+        
+        
+        public static List<Square> SetUpNeighbours(int numMines)
+        {
+            List<Square> neighbours = new List<Square>();
+            
+            for (int i = 0; i < numMines; i++)
+            {
+                neighbours.Add(new Square('*'));
+            }
+            
+            for (int i = numMines; i < 8; i++)
+            {
+                neighbours.Add(new Square('.'));
+            }
+
+            return neighbours;
+        }
+        
+        public static List<Square> SetUpNeighbours2(int numMines)
         {
             List<Square> neighbours = new List<Square>();
             

@@ -5,7 +5,7 @@ namespace MinesweeperLibrary
 {
     public class Field
     {
-        private Square[,] squares;
+        public Square[,] Squares;
         private int N;
         private int M; 
 
@@ -16,9 +16,15 @@ namespace MinesweeperLibrary
             SetUpSquareArray(input);
         }
 
-        public void SetUpSquareArray(char[,] input)
+        private void SetUpSquareArray(char[,] input)
         {
-            
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    Squares[i,j] = new Square(input[i,j]);
+                }
+            }
         }
 
 
