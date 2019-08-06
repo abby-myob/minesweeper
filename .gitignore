@@ -370,5 +370,5 @@ fabric.properties
 # idea files
 .idea/
 **/.idea/**
-GameOfLife/.idea/.idea.GameOfLife/.idea/workspace.xml
-GameOfLife/.idea/.idea.GameOfLife/.idea/contentModel.xml
+minesweeper/.idea/.idea.minesweeper/.idea/workspace.xml
+minesweeper/.idea/.idea.minesweeper/.idea/contentModel.xml
