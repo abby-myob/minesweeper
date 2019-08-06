@@ -16,9 +16,16 @@ namespace MinesweeperLibrary
 
         public void Update(List<Square> neighbours)
         {
-            var numOfMines = neighbours.Count(x => x.InitialState == '*');
-
-            AdjacentMines = char.Parse(numOfMines.ToString());
+            if (InitialState == '*')
+            {
+                AdjacentMines = InitialState;
+            }
+            else
+            {
+                AdjacentMines = char.Parse(neighbours.Count(x => x.InitialState == '*').ToString());
+            }
+            
+            
         }
     }
 }
