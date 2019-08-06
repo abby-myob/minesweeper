@@ -1,8 +1,7 @@
-﻿using System;
-
 namespace MinesweeperLibrary
 {
-    public class Class1
+    public class Field
     {
+        
     }
 }
