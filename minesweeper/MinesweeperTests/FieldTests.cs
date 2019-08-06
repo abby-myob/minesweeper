@@ -1,3 +1,4 @@
+using MinesweeperLibrary;
 using Xunit;
 
 namespace MinesweeperTests
@@ -7,6 +8,15 @@ namespace MinesweeperTests
         [Fact]
         public void Setup()
         {
+            Field field = new Field();
+            //Square square = new Square();
+            
+        }
+    }
+    
+}
+
+
 //            "44" 
 //            "*..."
 //            "...."
@@ -19,7 +29,3 @@ namespace MinesweeperTests
 //            ".*..."
 //                
 //            "00"
-        }
-    }
-    
-}
