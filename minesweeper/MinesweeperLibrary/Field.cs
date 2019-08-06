@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace MinesweeperLibrary
 {
@@ -27,17 +28,32 @@ namespace MinesweeperLibrary
             }
         }
 
-
         public void UpdateSquares()
         {
-            //for loop 
-            //square.update(GetNeighbours(square));
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < M; j++)
+                {
+                    Squares[i,j].Update(GetNeighbours(i,j));
+                }
+            }
         }
 
-        public List<Square> GetNeighbours(Square square)
+        public List<Square> GetNeighbours(int row, int col)
         {
-            //go through squares array and put into a list
-            return new List<Square>();
+            List<Square> neighbours = new List<Square>();
+
+            for (var i = -1; i <= 1; i++)
+            {
+                for (var j = -1; j <= 1; j++)
+                {
+                    if (i == 0 && j == 0) continue;
+                    if (row+i < 0 || row+i > N || col+j < 0 || col+j > M) continue;
+                    
+                    neighbours.Add(Squares[row+i,col+j]);
+                }
+            }
+            return neighbours;
         }
         
     }
