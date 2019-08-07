@@ -1,17 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Runtime.InteropServices;
-using MinesweeperLibrary;
+﻿using MinesweeperLibrary;
 
 namespace minesweeper
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
-            Minesweeper minesweeper = new Minesweeper(Printer.GetInput());
-            Printer printer = new Printer();
-            
+            var minesweeper = new Minesweeper(Printer.GetInput());
+
             minesweeper.Start();
             Printer.PrintFields(minesweeper.GetOutput());
         }

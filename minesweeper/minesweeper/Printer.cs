@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace minesweeper
 {
-    internal class Printer
+    internal static class Printer
     {
         public static void PrintFields(IEnumerable<List<string>> fields)
         {
@@ -35,23 +35,5 @@ namespace minesweeper
 
             return list;
         }
-
-//        public static List<string> GetInputFake()
-//        {
-//            List<string> list = new List<string>();
-//            list.Add("44");
-//            list.Add("*...");
-//            list.Add("....");
-//            list.Add(".*..");
-//            list.Add("....");
-//            list.Add("");
-//            list.Add("35");
-//            list.Add("**...");
-//            list.Add(".....");
-//            list.Add(".*...");
-//            list.Add("");
-//            list.Add("00");
-//            return list;
-//        }
     }
 }
