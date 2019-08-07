@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MinesweeperLibrary
 {
-    public class Minesweeper
+    public class Minesweeper : IMinesweeper
     {
         private List<Field> _fields = new List<Field>();
         private readonly List<List<string>> _output = new List<List<string>>();

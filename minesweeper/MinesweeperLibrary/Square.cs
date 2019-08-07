@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace MinesweeperLibrary
 {
-    public class Square
+    public class Square : ISquare
     {
         public char AdjacentMines { get; private set; }
         private char InitialState { get; }

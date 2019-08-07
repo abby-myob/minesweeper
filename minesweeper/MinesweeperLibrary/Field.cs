@@ -3,7 +3,7 @@ using System.Text;
 
 namespace MinesweeperLibrary
 {
-    public class Field
+    public class Field : IField
     {
         private Square[,] _squares;
         private readonly int _n;
