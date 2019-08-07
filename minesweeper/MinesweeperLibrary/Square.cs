@@ -30,16 +30,16 @@ namespace MinesweeperLibrary
         
         
         
-        public override bool Equals(object obj)
-        {
-            return obj is Square other && (InitialState.Equals(other.InitialState) && AdjacentMines.Equals(other.AdjacentMines));
-        }
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (AdjacentMines.GetHashCode() * 397) ^ InitialState.GetHashCode();
-            }
-        }
+//        public override bool Equals(object obj)
+//        {
+//            return obj is Square other && (InitialState.Equals(other.InitialState) && AdjacentMines.Equals(other.AdjacentMines));
+//        }
+//        public override int GetHashCode()
+//        {
+//            unchecked
+//            {
+//                return (AdjacentMines.GetHashCode() * 397) ^ InitialState.GetHashCode();
+//            }
+//        }
     }
 }
