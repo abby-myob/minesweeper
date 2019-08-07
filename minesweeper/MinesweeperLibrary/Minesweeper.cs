@@ -4,10 +4,10 @@ namespace MinesweeperLibrary
 {
     public class Minesweeper
     {
-        private List<Field> Fields = new List<Field>();
-        private List<List<string>> Output = new List<List<string>>();
+        private List<Field> _fields = new List<Field>();
+        private readonly List<List<string>> _output = new List<List<string>>();
         
-        public Minesweeper(List<string> input)
+        public Minesweeper(IEnumerable<string> input)
         {
             SetUpFields(input);
         }
@@ -18,9 +18,9 @@ namespace MinesweeperLibrary
             ProduceOutput();
         }
         
-        private void SetUpFields(List<string> input) // get a method pulled out of this logic
+        private void SetUpFields(IEnumerable<string> input) // get a method pulled out of this logic
         {
-            Fields = new List<Field>();
+            _fields = new List<Field>();
             int n = 0, m = 0, rows = 0; 
             char[,] chars = new char[0,0];
 
@@ -31,7 +31,7 @@ namespace MinesweeperLibrary
                 if (line.Length < 1) 
                 {
                     Field field = new Field(n, m, chars);
-                    Fields.Add(field);
+                    _fields.Add(field);
                     continue;
                 }
 
@@ -55,17 +55,17 @@ namespace MinesweeperLibrary
 
         private void UpdateFields()
         {
-            Fields.ForEach(x => x.UpdateSquares());
+            _fields.ForEach(x => x.UpdateSquares());
         }
 
         private void ProduceOutput()
         {  
-            Fields.ForEach(x => Output.Add(x.ToStringList())); 
+            _fields.ForEach(x => _output.Add(x.ToStringList())); 
         } 
         
         public List<List<string>> GetOutput()
         {
-            return Output;
+            return _output;
         }
     }
 }

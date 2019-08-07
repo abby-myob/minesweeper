@@ -1,62 +1,59 @@
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace MinesweeperLibrary
 {
     public class Field
     {
-        private Square[,] Squares;
-        private int N;
-        private int M; 
+        private Square[,] _squares;
+        private readonly int _n;
+        private readonly int _m; 
 
         public Field(int n, int m, char[,] input)
         {
-            N = n;
-            M = m;
+            _n = n;
+            _m = m;
             SetUpSquareArray(input);
         }
 
         private void SetUpSquareArray(char[,] input)
         {
-            Squares = new Square[N,M];
+            _squares = new Square[_n,_m];
             
-            for (var i = 0; i < N; i++)
+            for (var i = 0; i < _n; i++)
             {
-                for (var j = 0; j < M; j++)
+                for (var j = 0; j < _m; j++)
                 {
-                    Squares[i,j] = new Square(input[i,j]);
+                    _squares[i,j] = new Square(input[i,j]);
                 }
             }
         }
 
         public void UpdateSquares()
         {
-            for (var i = 0; i < N; i++)
+            for (var i = 0; i < _n; i++)
             {
-                for (var j = 0; j < M; j++)
+                for (var j = 0; j < _m; j++)
                 {
-                    Squares[i,j].Update(GetNeighbours(i,j));
+                    _squares[i,j].Update(GetNeighbours(i,j));
                 }
             }
         }
 
-        private List<Square> GetNeighbours(int row, int col)
+        private IEnumerable<Square> GetNeighbours(int row, int col)
         {
-            List<Square> neighbours = new List<Square>();
+            var neighbours = new List<Square>();
 
             for (var i = -1; i <= 1; i++)
             {
-                if (row + i < 0 || row + i >= N) continue;
+                if (row + i < 0 || row + i >= _n) continue;
                 
                 for (var j = -1; j <= 1; j++)
                 {
                     if (i == 0 && j == 0) continue;
-                    if (col+j < 0 || col+j >= M) continue;
+                    if (col+j < 0 || col+j >= _m) continue;
                     
-                    neighbours.Add(Squares[row+i,col+j]);
+                    neighbours.Add(_squares[row+i,col+j]);
                 }
             }
             return neighbours;
@@ -64,14 +61,14 @@ namespace MinesweeperLibrary
 
         public List<string> ToStringList()
         {
-            StringBuilder stringBuilder = new StringBuilder();
-            List<string> output = new List<string>();
+            var stringBuilder = new StringBuilder();
+            var output = new List<string>();
             
-            for (int i = 0; i < N; i++)
+            for (var i = 0; i < _n; i++)
             {
-                for (int j = 0; j < M; j++)
+                for (var j = 0; j < _m; j++)
                 {
-                    stringBuilder.Append(Squares[i, j].AdjacentMines);
+                    stringBuilder.Append(_squares[i, j].AdjacentMines);
                 }
 
                 output.Add(stringBuilder.ToString());
